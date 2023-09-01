@@ -21,9 +21,9 @@ function App() {
       <div className="main-bg"></div>
       <Container>
         <Row>
-          <Card shoes={shoes[0]} idx={1}></Card>
-          <Card shoes={shoes[1]} idx={2}></Card>
-          <Card shoes={shoes[2]} idx={3}></Card>
+          {shoes.map((a, i) => {
+            return <Card shoes={shoes[i]} idx={i + 1}></Card>;
+          })}
         </Row>
       </Container>
     </div>
@@ -39,7 +39,7 @@ function Card(props) {
           "https://codingapple1.github.io/shop/shoes" + props.idx + ".jpg"
         }></img>
       <h4>{props.shoes.title}</h4>
-      <p>상품정보</p>
+      <p>{props.shoes.content}</p>
     </Col>
   );
 }
